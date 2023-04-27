@@ -32,7 +32,8 @@ module.exports = {
       } else if (
         (string.includes("playlist") === true &&
           string.includes("youtube") === true) ||
-        string.includes("youtu.be") === true
+        (string.includes("playlist") === true &&
+          string.includes("youtube") === true)
       ) {
         return embed.noPlaylist(message);
       } else if (
