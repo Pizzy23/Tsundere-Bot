@@ -13,7 +13,7 @@ class Dice {
     try {
       const pieces = this.sliceInput(input);
       if (!pieces) {
-        console.log(pieces);
+        console.log(pieces)
         throw new Error("Você esta errando, to chateada com você.");
       }
       const validation = this.validation(pieces);
@@ -27,7 +27,6 @@ class Dice {
         }
       }
     } catch (e) {
-      console.log(" Separator. ");
       throw new Error(e.message);
     }
   }
@@ -172,7 +171,7 @@ class Dice {
   sliceInput(input) {
     const slice = input.split("");
     if (slice[1] == "r") {
-      const removeRoll = input.replace(/[&roll]/g, "");
+      const removeRoll = input.replace(/[*&roll]/g, "");
       const noSpace = removeRoll.replace(/\s/g, "");
       return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
     }
