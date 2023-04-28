@@ -19,7 +19,7 @@ class Dice {
       const validation = this.validation(pieces);
       if (validation === true) {
         this.diceObj = this.objCreate(pieces);
-        if (!this.diceObj.modifier == 0) {
+        if (!this.diceObj.modifier == undefined) {
           const a = this.diceObj.modifier.split("");
           this.signal = a[0];
           let num = this.diceObj.modifier;
@@ -109,6 +109,7 @@ class Dice {
     this.signal = "";
     this.dices = [];
     this.dice = 0;
+    this.error = "";
   }
   instance(message, args) {
     this.resetVariables();
@@ -174,12 +175,12 @@ class Dice {
   sliceInput(input) {
     const slice = input.split("");
     if (slice[1] == "r") {
-      const removeRoll = input.replace(/[*roll]/g, "")
+      const removeRoll = input.replace(/[&roll]/g, "");
       const noSpace = removeRoll.replace(/\s/g, "");
       return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
     }
     if (slice[1] == "s") {
-      const removeSeque = input.replace(/[*seque]/g, "")
+      const removeSeque = input.replace(/[*seque]/g, "");
       const noSpace = removeSeque.replace(/\s/g, "");
       return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
     }

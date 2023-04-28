@@ -6,3 +6,5 @@ heroku-track.cmd
 .env
 Unit.txt
 commands.txt
+.firebaserc
+firebaseCred.json
