@@ -14,7 +14,7 @@ class Dice {
     try {
       const pieces = this.sliceInput(input);
       if (!pieces) {
-        return this.setError("Você esta errando, to chateada com você.");
+        throw new Error("Você esta errando, to chateada com você.");
       }
       const validation = this.validation(pieces);
       if (validation === true) {
@@ -26,9 +26,8 @@ class Dice {
           this.diceObj.numModifier = parseInt(num.replace(/[-]/, ""));
         }
       }
-      return this.error;
     } catch (e) {
-      return this.setError(e.message);
+      throw new Error(e.message);
     }
   }
 
@@ -112,66 +111,64 @@ class Dice {
     this.error = undefined;
   }
   instance(message, args) {
-    this.resetVariables();
-    const separator = this.separator(message.content);
-    if (this.error !== undefined) {
-      return this.error;
-    }
-    const throwDice = this.throwDice();
-    const resultDices = this.resultDices();
-    const author = message.author;
-    if (this.diceObj.numDice !== 1) {
-      return (
-        `${author} Roll: ` +
-        "`" +
-        "[" +
-        throwDice +
-        "]" +
-        "`" +
-        " Result: " +
-        "`" +
-        "[" +
-        resultDices +
-        "]" +
-        "`"
-      );
-    }
-    if (!this.diceObj.numModifier == 0) {
-      return (
-        `${author} Roll: ` +
-        "`" +
-        "[" +
-        this.diceObj.nobuff +
-        "]" +
-        "`" +
-        " Result: " +
-        "`" +
-        "[" +
-        throwDice +
-        "]" +
-        "`"
-      );
-    }
+    try {
+      this.resetVariables();
+      const separator = this.separator(message.content);
+      const throwDice = this.throwDice();
+      const resultDices = this.resultDices();
+      const author = message.author;
+      if (this.diceObj.numDice !== 1) {
+        return (
+          `${author} Roll: ` +
+          "`" +
+          "[" +
+          throwDice +
+          "]" +
+          "`" +
+          " Result: " +
+          "`" +
+          "[" +
+          resultDices +
+          "]" +
+          "`"
+        );
+      }
+      if (!this.diceObj.numModifier == 0) {
+        return (
+          `${author} Roll: ` +
+          "`" +
+          "[" +
+          this.diceObj.nobuff +
+          "]" +
+          "`" +
+          " Result: " +
+          "`" +
+          "[" +
+          throwDice +
+          "]" +
+          "`"
+        );
+      }
 
-    return (
-      `${author} Roll: ` +
-      "`" +
-      "[" +
-      throwDice +
-      "]" +
-      "`" +
-      " Result: " +
-      "`" +
-      "[" +
-      throwDice +
-      "]" +
-      "`"
-    );
+      return (
+        `${author} Roll: ` +
+        "`" +
+        "[" +
+        throwDice +
+        "]" +
+        "`" +
+        " Result: " +
+        "`" +
+        "[" +
+        throwDice +
+        "]" +
+        "`"
+      );
+    } catch (err) {
+      console.log(err.stack);
+    }
   }
-  setError(error) {
-    console.log(error);
-    return (this.error = error);
-  }
+
   sliceInput(input) {
     const slice = input.split("");
     if (slice[1] == "r") {
@@ -203,13 +200,13 @@ class Dice {
   }
   validation(pieces) {
     if (pieces[2] < 1) {
-      return this.setError(`Quer que eu role um dado? para ser idiota.`);
+      throw new Error(`Quer que eu role um dado? para ser idiota.`);
     }
     if (pieces[1] > 100) {
-      return this.setError(`Não existe possibilidade de eu ter 30 dados.`);
+      throw new Error(`Não existe possibilidade de eu ter 30 dados.`);
     }
     if (pieces[2] > 99999) {
-      return this.setError(
+      throw new Error(
         `Como se quer que eu tenha mais de 99999 lados em um dado?`
       );
     }
