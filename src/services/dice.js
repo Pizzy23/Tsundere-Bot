@@ -109,7 +109,7 @@ class Dice {
     this.signal = "";
     this.dices = [];
     this.dice = 0;
-    this.error = "";
+    this.error = undefined;
   }
   instance(message, args) {
     this.resetVariables();
