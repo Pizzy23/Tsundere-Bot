@@ -1,5 +1,4 @@
 class Dice {
-  error;
   diceTotal = 0;
   nobuff = 0;
   numDice;
@@ -14,6 +13,7 @@ class Dice {
     try {
       const pieces = this.sliceInput(input);
       if (!pieces) {
+        console.log(pieces);
         throw new Error("Você esta errando, to chateada com você.");
       }
       const validation = this.validation(pieces);
@@ -27,6 +27,7 @@ class Dice {
         }
       }
     } catch (e) {
+      console.log(" Separator. ");
       throw new Error(e.message);
     }
   }
@@ -108,7 +109,6 @@ class Dice {
     this.signal = "";
     this.dices = [];
     this.dice = 0;
-    this.error = undefined;
   }
   instance(message, args) {
     try {
