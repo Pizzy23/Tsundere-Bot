@@ -114,7 +114,7 @@ class Dice {
   instance(message, args) {
     this.resetVariables();
     const separator = this.separator(message.content);
-    if (this.error) {
+    if (this.error !== undefined) {
       return this.error;
     }
     const throwDice = this.throwDice();
