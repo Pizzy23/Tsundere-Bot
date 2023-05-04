@@ -19,7 +19,7 @@ class Dice {
       const validation = this.validation(pieces);
       if (validation === true) {
         this.diceObj = this.objCreate(pieces);
-        if (!this.diceObj.modifier == undefined) {
+        if (this.diceObj.modifier !== undefined) {
           const a = this.diceObj.modifier.split("");
           this.signal = a[0];
           let num = this.diceObj.modifier;
