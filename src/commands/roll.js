@@ -9,7 +9,7 @@ module.exports = {
   options: [],
 
   async execute(client, message, args) {
-    let output = dice.instance(message, args);
+    let output = await dice.calls(message, args);
     if (output == undefined) {
       output = "Você fez algo errado idiota.";
       return message.reply(output);

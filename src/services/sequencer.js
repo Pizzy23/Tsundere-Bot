@@ -12,7 +12,7 @@ class Sequencer extends Dice {
       this.array = [];
       this._setSeparator(message.content);
       const validation = this.validation(this.slice);
-      this.diceObj = this.objCreate(this.slice);
+      this.diceObj = this._objCreate(this.slice);
       if (validation === true) {
         if (this.diceObj.numDice > this.maxDices) {
           return this.setError(
