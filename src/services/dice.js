@@ -26,11 +26,11 @@ class Dice {
   }
   sliceInput(input) {
     const slice = input.split("");
-    if (slice[1] == "r") {
-      const removeRoll = input.replace(/[*&roll]/g, "");
-      const noSpace = removeRoll.replace(/\s/g, "");
-      return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
-    }   
+      if (slice[1] == "r") {
+        const removeRoll = input.replace(/[*&roll]/g, "");
+        const noSpace = removeRoll.replace(/\s/g, "");
+        return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
+      }   
      if (slice[1] == "s") {
       const removeRoll = input.replace(/[*&seque]/g, "");
       const noSpace = removeRoll.replace(/\s/g, "");
