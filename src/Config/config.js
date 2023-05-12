@@ -4,11 +4,11 @@ module.exports = {
   ACTIVE_SPOT: process.env.SPOT_MUSIC,
   ACTIVE_BOT: process.env.BOT_STATUS,
 
-  TSUND_TOKEN: process.env.TOKEN, 
+  TSUND_TOKEN: process.env.TOKEN,
   OWNER_ID: "229724269150470144",
-  OWNER_TAG: "( ・・)つ#2311", 
-  OWNER_LINK: "https://discord.com/users/939867069070065714", 
-  DEV_GUILD: "1016098280133898293", 
+  OWNER_TAG: "( ・・)つ#2311",
+  OWNER_LINK: "https://discord.com/users/939867069070065714",
+  DEV_GUILD: "1016098280133898293",
   TSUND_NAME: process.env.BOT_NAME,
 
   TSUND_TRACKS: parseBoolean(process.env.TSUND_TRACKS || false),
@@ -27,6 +27,8 @@ module.exports = {
   AUTO_LEAVE_COOLDOWN: 5000,
   DISPLAY_VOICE_STATE: true,
   PORT: process.env.PORT,
+
+  SERVER_PERMISSIONS: [process.env.RPG, process.env.SHARK, process.env.MY],
 };
 
 function parseBoolean(ask) {

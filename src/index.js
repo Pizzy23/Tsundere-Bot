@@ -66,6 +66,7 @@ client.config = {
   autoLeaveCooldown: 5000,
   displayVoiceState: true,
   port: client.important.PORT,
+  serverPermissions: client.important.SERVER_PERMISSIONS,
 };
 
 client.commands = new Collection();
@@ -224,7 +225,11 @@ client.distube
   )
   .on("error", (channel, e) => {
     if (channel)
-      channel.send(`❌ || Alguma coisa aconteceu, certeza que foi culpa do mestre.. ${e.toString().slice(0, 1974)}`);
+      channel.send(
+        `❌ || Alguma coisa aconteceu, certeza que foi culpa do mestre.. ${e
+          .toString()
+          .slice(0, 1974)}`
+      );
     else console.error(e);
   })
   .on("empty", (message) => {
@@ -274,6 +279,6 @@ function TSUNDSpotiisOn(client) {
     api: {
       clientId: client.important.SPOTIFY_CLIENT_ID,
       clientSecret: client.important.SPOTIFY_SECRET,
-    }
-  })
+    },
+  });
 }
