@@ -28,6 +28,7 @@ class Phasmo {
       }
     });
     if (validGhosts.length == 0) {
+      console.log(validGhosts);
       throw new Error("Sem Fantasmas.");
     }
     return validGhosts;
@@ -36,6 +37,7 @@ class Phasmo {
     try {
       const string = this._clearString(message.content);
       const valid = this._detectGhost(string);
+      console.log(valid);
       if (valid.length !== 0) {
         valid.forEach(function (ghost) {
           embed.ghostIsValid(message, ghost);
