@@ -1,12 +1,10 @@
 const { ghost, evidencesParser } = require("../util/mocks/ghosts");
 const { EmbedGhosts } = require("../util/embed/embedGhost");
 const embed = new EmbedGhosts();
-const prefix = process.env.PREFIX;
 
 class Phasmo {
-  _clearString(str) {
+  _clearString(str, prefix) {
     const phasmoReplace = new RegExp(`${prefix}\\s*ph\\s*`, "g");
-    console.log(phasmoReplace);
     const string = str.replace(phasmoReplace, "");
     console.log(string);
     if (string == "") {
@@ -41,8 +39,9 @@ class Phasmo {
     return validGhosts;
   }
   calls(client, message) {
+    const prefix = client.important.TSUND_PREFIX;
     try {
-      const string = this._clearString(message.content);
+      const string = this._clearString(message.content, prefix);
       const valid = this._detectGhost(string);
       console.log(valid);
       if (valid.length !== 0) {
