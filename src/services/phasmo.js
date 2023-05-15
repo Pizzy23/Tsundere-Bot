@@ -6,9 +6,9 @@ const prefix = process.env.PREFIX;
 class Phasmo {
   _clearString(str) {
     const phasmoReplace = new RegExp(`${prefix}\\s*ph\\s*`, "g");
-    console.log(phasmoReplace)
+    console.log(phasmoReplace);
     const string = str.replace(phasmoReplace, "");
-    console.log(string)
+    console.log(string);
     if (string == "") {
       throw new Error("Sem evidencia");
     }
@@ -44,6 +44,7 @@ class Phasmo {
     try {
       const string = this._clearString(message.content);
       const valid = this._detectGhost(string);
+      console.log(valid);
       if (valid.length !== 0) {
         valid.forEach(function (ghost) {
           embed.ghostIsValid(message, ghost);
@@ -53,6 +54,7 @@ class Phasmo {
         return embed.noGhost(message);
       }
     } catch (e) {
+      console.log(e);
       if (e.message == "Sem Fantasmas.") {
         return embed.noGhost(message);
       }
