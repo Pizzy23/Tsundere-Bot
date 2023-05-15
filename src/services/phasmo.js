@@ -47,6 +47,7 @@ class Phasmo {
         return embed.noGhost(message);
       }
     } catch (e) {
+      console.log(e);
       if (e.message == "Sem Fantasmas.") {
         return embed.noGhost(message);
       }
