@@ -11,12 +11,12 @@ module.exports = {
   options: [],
 
   async execute(client, message, args) {
+    const embed = new EmbedClass();
     if (
       client.config.serverPermissions[0] == message.guild.id ||
       client.config.serverPermissions[2] == message.guild.id
     ) {
       const clearString = new ClearStringClass();
-      const embed = new EmbedClass();
       const id = message.author.id;
       const user = message.author.username;
       const input = message.content;
@@ -49,5 +49,6 @@ module.exports = {
         return embed.noCommand(message, output);
       }
     }
+    return embed.noPermission(message)
   },
 };

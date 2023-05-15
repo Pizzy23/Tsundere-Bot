@@ -170,10 +170,8 @@ const ghost = [
     unique:
       "Oni não pode fazer o evento fantasma de 'nevoeiro do fantasma' e tem uma chance maior de mostrar sua forma completa durante os eventos fantasma (não sombra ou stealth). Sempre preste atenção aos eventos fantasma que ocorrem.",
     fact: "Oni não arremessará objetos mais alto ou mais longe do que outros fantasmas. Essa habilidade foi transferida para o Poltergeist na atualização Apocalypse.",
-    video: [
-      "https://youtu.be/5FicXO8G-Kw",
-      "https://clips.twitch.tv/DependableFlaccidKuduResidentSleeper-M5WMgUMKTAocvYp7",
-    ],
+    video: "https://youtu.be/5FicXO8G-Kw",
+    video2: "https://clips.twitch.tv/DependableFlaccidKuduResidentSleeper-M5WMgUMKTAocvYp7"
   },
   {
     name: "YOKAI",
@@ -347,4 +345,14 @@ const ghost = [
   },
 ];
 
-module.exports = { ghost };
+const evidencesParser = {
+  orb: "Orbs",
+  escrita: "Ghost Writing",
+  dots: "DOTS",
+  box: "Spirit Box",
+  temperatura: "Freezing Temps",
+  impressao: "Fingerprints",
+  emf: "EMF 5",
+};
+
+module.exports = { ghost, evidencesParser };

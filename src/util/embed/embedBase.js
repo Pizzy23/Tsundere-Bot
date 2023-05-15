@@ -66,5 +66,20 @@ class EmbedClass {
       })
       .catch(console.error);
   }
+  noPermission(message, output) {
+    const embed = new Discord.EmbedBuilder()
+      .setColor("800080")
+      .setTitle(`SEM PERMISSAO`)
+      .setDescription(
+        "Você não tem permissao para utilizar esse comando. Afinal o mestre não autorizou você."
+      )
+      .setTimestamp();
+    return message.channel
+      .send({
+        embeds: [embed],
+        allowedMentions: { repliedUser: false },
+      })
+      .catch(console.error);
+  }
 }
 module.exports = { EmbedClass };
