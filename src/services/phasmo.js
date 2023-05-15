@@ -1,9 +1,15 @@
 const { ghost, evidencesParser } = require("../util/mocks/ghosts");
 const { EmbedGhosts } = require("../util/embed/embedGhost");
 const embed = new EmbedGhosts();
+const prefix = process.env.PREFIX;
+
 class Phasmo {
   _clearString(str) {
-    const string = str.replace(/&ph\s*/g, "");
+    const phasmoReplace = new RegExp(`${prefix}\\s*ph\\s*`, "g");
+    const string = str.replace(phasmoReplace, "");
+    if (string == "") {
+      throw new Error("Sem evidencia");
+    }
     return string;
   }
   _parseEvidence(evidence) {
@@ -28,7 +34,6 @@ class Phasmo {
       }
     });
     if (validGhosts.length == 0) {
-      console.log(validGhosts);
       throw new Error("Sem Fantasmas.");
     }
     return validGhosts;
@@ -37,7 +42,6 @@ class Phasmo {
     try {
       const string = this._clearString(message.content);
       const valid = this._detectGhost(string);
-      console.log(valid);
       if (valid.length !== 0) {
         valid.forEach(function (ghost) {
           embed.ghostIsValid(message, ghost);
@@ -47,7 +51,6 @@ class Phasmo {
         return embed.noGhost(message);
       }
     } catch (e) {
-      console.log(e);
       if (e.message == "Sem Fantasmas.") {
         return embed.noGhost(message);
       }
