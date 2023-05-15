@@ -6,7 +6,9 @@ const prefix = process.env.PREFIX;
 class Phasmo {
   _clearString(str) {
     const phasmoReplace = new RegExp(`${prefix}\\s*ph\\s*`, "g");
+    console.log(phasmoReplace)
     const string = str.replace(phasmoReplace, "");
+    console.log(string)
     if (string == "") {
       throw new Error("Sem evidencia");
     }
