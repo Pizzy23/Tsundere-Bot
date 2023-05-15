@@ -4,9 +4,8 @@ const embed = new EmbedGhosts();
 
 class Phasmo {
   _clearString(str, prefix) {
-    const phasmoReplace = new RegExp(`${prefix}\\s*ph\\s*`, "g");
+    const phasmoReplace = new RegExp(`[${prefix}]\\s*ph\\s*`, "g");
     const string = str.replace(phasmoReplace, "");
-    console.log(string);
     if (string == "") {
       throw new Error("Sem evidencia");
     }
@@ -43,7 +42,6 @@ class Phasmo {
     try {
       const string = this._clearString(message.content, prefix);
       const valid = this._detectGhost(string);
-      console.log(valid);
       if (valid.length !== 0) {
         valid.forEach(function (ghost) {
           embed.ghostIsValid(message, ghost);
@@ -53,7 +51,6 @@ class Phasmo {
         return embed.noGhost(message);
       }
     } catch (e) {
-      console.log(e);
       if (e.message == "Sem Fantasmas.") {
         return embed.noGhost(message);
       }
