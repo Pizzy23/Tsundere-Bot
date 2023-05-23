@@ -67,7 +67,7 @@ const ghost = [
     unique:
       "A Banshee só vai atacar um jogador durante toda a partida, desde que esse jogador esteja vivo e dentro da casa. Se o alvo estiver fora da casa, a Banshee vai caçar normalmente. Se o jogador morrer, a Banshee selecionará um novo alvo.\n\nCaracterísticas da Banshee: Ignora os jogadores que não são alvos durante a caçada. Possui um som único no microfone parabólico. Aumenta a chance de eventos fantasmais de canto. Ignora a sanidade média e pode caçar quando o alvo estiver abaixo ou em 50% de sanidade. Isso significa que, sob as circunstâncias certas, a Banshee pode caçar com uma sanidade em grupo de 87%, se seu alvo estiver em 50% e todos os outros membros estiverem em 100%. Costuma perseguir seu alvo enquanto vagueia. Exemplo de sons únicos no microfone parabólico abaixo.",
     fact: "Se o alvo estiver com sanidade acima de 50%, dentro ou fora da casa, a Banshee não pode caçar.",
-    url: "https://youtu.be/4gC5lvFj2jc",
+    video: "https://youtu.be/4gC5lvFj2jc",
   },
   {
     name: "JINN",
