@@ -14,7 +14,8 @@ module.exports = {
     const embed = new EmbedClass();
     if (
       client.config.serverPermissions[2] == message.guild.id ||
-      client.config.serverPermissions[1] == message.guild.id
+      client.config.serverPermissions[1] == message.guild.id ||
+      client.config.serverPermissions[3] == message.guild.id
     ) {
       return phasmo.calls(client, message);
     }
