@@ -224,6 +224,7 @@ client.distube
     )
   )
   .on("error", (channel, e) => {
+    console.error(e);
     if (channel)
       channel.send(
         `❌ || Alguma coisa aconteceu, certeza que foi culpa do mestre.. ${e
