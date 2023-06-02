@@ -4,7 +4,7 @@ const embed = new EmbedGhosts();
 
 class Phasmo {
   _clearString(str, prefix) {
-    const phasmoReplace = new RegExp(`[${prefix}]\\s*ph\\s*`, "g");
+    const phasmoReplace = new RegExp(`\\${prefix}\\s*ph\\s*`, "g");
     const string = str.replace(phasmoReplace, "");
     if (string == "") {
       throw new Error("Sem evidencia");
