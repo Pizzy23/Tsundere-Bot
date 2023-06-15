@@ -23,33 +23,34 @@ module.exports = {
     try {
       const vali = new ValidationServer();
       if (vali.vali(client, message) == true) {
-      const { member, guildId, guild } = message;
-      const loop = args[0];
-      const queue = client.distube.getQueue(message);
-      if (!queue) {
-        return embed.notSongForLoop(message);
-      }
-      if (loop) {
-        let mode = null;
-        switch (loop) {
-          case "off":
-            mode = 0;
-            break;
-          case "one":
-            mode = 1;
-            break;
-          case "all":
-            mode = 2;
-            break;
+        const { member, guildId, guild } = message;
+        const loop = args[0];
+        const queue = client.distube.getQueue(message);
+        if (!queue) {
+          return embed.notSongForLoop(message);
         }
-        mode = queue.setRepeatMode(mode);
-        mode = mode ? (mode === 2 ? "Repeat queue" : "Repeat song") : "Off";
-        return embed.loopSucceeded(message, mode);
+        if (loop) {
+          let mode = null;
+          switch (loop) {
+            case "off":
+              mode = 0;
+              break;
+            case "one":
+              mode = 1;
+              break;
+            case "all":
+              mode = 2;
+              break;
+          }
+          mode = queue.setRepeatMode(mode);
+          mode = mode ? (mode === 2 ? "Repeat queue" : "Repeat song") : "Off";
+          return embed.loopSucceeded(message, mode);
+        } else {
+          return embed.ifNotRecevingLoopCommand(message);
+        }
       } else {
-        return embed.ifNotRecevingLoopCommand(message);
+        return embedClass.noPermission(message);
       }
-
-    }
     } catch (e) {}
   },
 };

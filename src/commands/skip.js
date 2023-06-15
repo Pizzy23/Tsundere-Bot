@@ -24,7 +24,8 @@ module.exports = {
       } catch (e) {
         return embed.genericError(message);
       }
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

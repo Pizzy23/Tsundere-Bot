@@ -31,7 +31,8 @@ module.exports = {
       } catch (e) {
         console.log(e);
       }
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

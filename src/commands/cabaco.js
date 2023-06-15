@@ -47,7 +47,8 @@ module.exports = {
         );
         return embed.noCommand(message, output);
       }
+    } else {
+      return embed.noPermission(message);
     }
-    return embed.noPermission(message);
   },
 };

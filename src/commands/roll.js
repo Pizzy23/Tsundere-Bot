@@ -5,7 +5,6 @@ const embedClass = new EmbedClass();
 const { ValidationServer } = require("../util/serverValidation");
 const vali = new ValidationServer();
 
-
 module.exports = {
   name: "roll",
   aliases: ["r"],
@@ -21,7 +20,8 @@ module.exports = {
         return message.reply(output);
       }
       return message.reply(output);
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

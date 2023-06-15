@@ -60,7 +60,8 @@ module.exports = {
         console.log(err);
         return embed.genericError(message);
       }
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

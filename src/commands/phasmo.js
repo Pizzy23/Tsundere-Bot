@@ -16,7 +16,8 @@ module.exports = {
     const embed = new EmbedClass();
     if (vali.valiPhasmo(client, message)) {
       return phasmo.calls(client, message);
+    } else {
+      return embed.noPermission(message);
     }
-    return embed.noPermission(message);
   },
 };

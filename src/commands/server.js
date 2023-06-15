@@ -25,7 +25,8 @@ module.exports = {
         embeds: [embed.Embed_server(serverlist)],
         allowedMentions: { repliedUser: false },
       });
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

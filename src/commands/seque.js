@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const { EmbedClass } = require("../util/embed/embedBase");
 const embedClass = new EmbedClass();
 const { ValidationServer } = require("../util/serverValidation");
-const vali = new ValidationServer();;
+const vali = new ValidationServer();
 
 module.exports = {
   name: "sequence",
@@ -35,7 +35,8 @@ module.exports = {
           allowedMentions: { repliedUser: false },
         })
         .catch(console.error);
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

@@ -15,7 +15,8 @@ module.exports = {
       if (!queue) return embed.genericError(message);
       queue.shuffle();
       embed.randomMusic(message);
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };

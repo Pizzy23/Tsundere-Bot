@@ -23,7 +23,8 @@ module.exports = {
         )
         .join("\n");
       message.channel.send(`**Server Queue**\n${q}`);
+    } else {
+      return embedClass.noPermission(message);
     }
-    return embedClass.noPermission(message);
   },
 };
