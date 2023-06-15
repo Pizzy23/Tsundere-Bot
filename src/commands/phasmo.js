@@ -1,6 +1,8 @@
 const { Phasmo } = require("../services/phasmo");
 const { EmbedClass } = require("../util/embed/embedBase");
 const { ClearStringClass } = require("../util/clearString");
+const { ValidationServer } = require("../util/serverValidation");
+const vali = new ValidationServer();
 
 const phasmo = new Phasmo();
 module.exports = {
@@ -12,11 +14,7 @@ module.exports = {
 
   async execute(client, message, args) {
     const embed = new EmbedClass();
-    if (
-      client.config.serverPermissions[2] == message.guild.id ||
-      client.config.serverPermissions[1] == message.guild.id ||
-      client.config.serverPermissions[3] == message.guild.id
-    ) {
+    if (vali.valiPhasmo(client, message)) {
       return phasmo.calls(client, message);
     }
     return embed.noPermission(message);

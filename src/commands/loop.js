@@ -5,6 +5,7 @@ const {
 } = require("discord.js");
 const { EmbedPlayer } = require("../util/embed/embedPlayer");
 const embed = new EmbedPlayer();
+const { ValidationServer } = require("../util/serverValidation");
 
 module.exports = {
   name: "loop",
@@ -20,6 +21,8 @@ module.exports = {
 
   async execute(client, message, args) {
     try {
+      const vali = new ValidationServer();
+      if (vali.vali(client, message) == true) {
       const { member, guildId, guild } = message;
       const loop = args[0];
       const queue = client.distube.getQueue(message);
@@ -45,6 +48,8 @@ module.exports = {
       } else {
         return embed.ifNotRecevingLoopCommand(message);
       }
+
+    }
     } catch (e) {}
   },
 };

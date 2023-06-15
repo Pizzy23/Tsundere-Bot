@@ -66,12 +66,12 @@ class EmbedClass {
       })
       .catch(console.error);
   }
-  noPermission(message, output) {
+  noPermission(message) {
     const embed = new Discord.EmbedBuilder()
       .setColor("800080")
       .setTitle(`SEM PERMISSAO`)
       .setDescription(
-        "Você não tem permissao para utilizar esse comando. Afinal o mestre não autorizou você."
+        `Você não tem permissao para utilizar esse comando. Afinal o mestre não autorizou você. ${message.author}`
       )
       .setTimestamp();
     return message.channel

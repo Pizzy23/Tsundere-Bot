@@ -1,16 +1,21 @@
 const { EmbedPlayer } = require("../util/embed/embedPlayer");
 const embed = new EmbedPlayer();
-
-
+const { EmbedClass } = require("../util/embed/embedBase");
+const embedClass = new EmbedClass();
+const { ValidationServer } = require("../util/serverValidation");
+const vali = new ValidationServer();
 module.exports = {
-  name: "shuffle", 
-  description: "Shuffle Musics", 
-  aliases: ["shuffle"], 
-  category: "Music", 
+  name: "shuffle",
+  description: "Shuffle Musics",
+  aliases: ["shuffle"],
+  category: "Music",
   execute: async (client, message, args) => {
-  const queue = client.distube.getQueue(message)
-  if (!queue) return embed.genericError(message)
-  queue.shuffle()
-  embed.randomMusic(message)
-}
-}
+    if (vali.vali(client, message) == true) {
+      const queue = client.distube.getQueue(message);
+      if (!queue) return embed.genericError(message);
+      queue.shuffle();
+      embed.randomMusic(message);
+    }
+    return embedClass.noPermission(message);
+  },
+};

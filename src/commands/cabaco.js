@@ -1,6 +1,8 @@
 const { CabacoClass } = require("../services/cabaco");
 const { EmbedClass } = require("../util/embed/embedBase");
 const { ClearStringClass } = require("../util/clearString");
+const { ValidationServer } = require("../util/serverValidation");
+const vali = new ValidationServer();
 const cabaco = new CabacoClass();
 
 module.exports = {
@@ -12,10 +14,7 @@ module.exports = {
 
   async execute(client, message, args) {
     const embed = new EmbedClass();
-    if (
-      client.config.serverPermissions[0] == message.guild.id ||
-      client.config.serverPermissions[2] == message.guild.id
-    ) {
+    if (vali.cabaco(client, message) == true) {
       const clearString = new ClearStringClass();
       const id = message.author.id;
       const user = message.author.username;
@@ -49,6 +48,6 @@ module.exports = {
         return embed.noCommand(message, output);
       }
     }
-    return embed.noPermission(message)
+    return embed.noPermission(message);
   },
 };
