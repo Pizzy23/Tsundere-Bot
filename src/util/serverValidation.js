@@ -1,7 +1,10 @@
 class ValidationServer {
   vali(client, message) {
     const validServer = client.config.serverPermissions;
-    if (validServer.includes(message.guild.id)) {
+    if (
+      validServer.includes(message.guild.id) ||
+      message.author == client.config.master
+    ) {
       return true;
     }
     return false;

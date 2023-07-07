@@ -58,6 +58,7 @@ client.distube = new DisTube(client, {
 client.distube.setMaxListeners(15);
 client.config = {
   name: client.important.TSUND_NAME,
+  master: client.important.OWNER_ID,
   prefix: client.important.TSUND_PREFIX,
   playing: `${client.important.TSUND_PREFIX} || help para pedir minha ajuda`,
   defaultVolume: 50,
