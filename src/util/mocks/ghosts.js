@@ -90,7 +90,7 @@ const ghost = [
       "Revenant viajará em uma velocidade significativamente mais rápida ao caçar sua presa.",
     weakness:
       "Esconder-se do Revenant fará com que ele se mova muito lentamente.",
-    evidence: ["Ghost Orb", "Ghost Writing", "Freezing Temps"],
+    evidence: ["Orbs", "Ghost Writing", "Freezing Temps"],
     noEvidence:
       "Velocidade de caça lenta quando a localização do jogador é desconhecida. Velocidade instantânea quando detecta o jogador.",
     hunt: "50%",
@@ -104,7 +104,7 @@ const ghost = [
     strength: "Mare terá uma chance aumentada de atacar no escuro.",
     weakness:
       "Acender as luzes ao redor da Mare diminuirá sua chance de atacar.",
-    evidence: ["Spirit Box", "Ghost Orb", "Ghost Writing"],
+    evidence: ["Spirit Box", "Orbs", "Ghost Writing"],
     noEvidence:
       "Prefere eventos de luz explodindo. Não irá acender as luzes. Chance de desligar imediatamente a luz ao ligá-la.",
     hunt: "A Mare pode caçar com 60% de chance se as luzes estiverem apagadas, mas não até 40% se as luzes estiverem acesas perto da Mare.",
@@ -234,7 +234,7 @@ const ghost = [
     name: "ONRYO",
     strength: "Onryo pode causar um ataque ao apagar chamas.",
     weakness: "Quando ameaçado, Onryo terá menos probabilidade de caçar.",
-    evidence: ["Spirit Box", "Ghost Orb", "Freezing Temps"],
+    evidence: ["Spirit Box", "Orbs", "Freezing Temps"],
     noEvidence:
       "Chamas acesas nas proximidades impedem a caçada. É possível forçar a caçada fazendo com que o fantasma apague 3 chamas, desde que não haja outras chamas por perto.",
     hunt: "Caça normalmente com 60% de chance, com uma chance de 100% ao apagar chamas.",
