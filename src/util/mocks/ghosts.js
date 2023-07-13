@@ -193,7 +193,7 @@ const ghost = [
     strength:
       "Falar perto de um Hantu aumentará sua atividade, levando a ataques com mais frequência.",
     weakness: "Hantu é menos ativo quando está em temperaturas mais baixas.",
-    evidence: ["Fingerprints", "Freezing Temps", "DOTS"],
+    evidence: ["Freezing Temps", "Orbs","Fingerprints"],
     noEvidence:
       "Dreno de sanidade aumentado quando a temperatura está mais baixa. Caçador precoce quando a temperatura está mais baixa.",
     hunt: "Hantu pode caçar normalmente com 50% de chance.",
