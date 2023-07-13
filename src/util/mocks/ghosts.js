@@ -192,16 +192,24 @@ const ghost = [
   {
     name: "HANTU",
     strength:
-      "Falar perto de um Hantu aumentará sua atividade, levando a ataques com mais frequência.",
-    weakness: "Hantu é menos ativo quando está em temperaturas mais baixas.",
+      "Temperaturas mais baixas permitem que o Hantu se mova em velocidades mais rápidas.",
+    weakness: "Hantu se move mais lentamente em áreas mais quentes.",
     evidence: ["Orbs", "Freezing Temps", "Fingerprints"],
     noEvidence:
-      "Dreno de sanidade aumentado quando a temperatura está mais baixa. Caçador precoce quando a temperatura está mais baixa.",
+      "Quanto menor a temperatura na sala, mais rápido será o Hantu." +
+      "\n1,4 = 15°C+" +
+      "\n1,75 = 12°C" +
+      "\n2,1 = 9°C" +
+      "\n2,3 = 6°C" +
+      "\n2,5 = 3°C" +
+      "\n2,7 = 0°C" +
+      "\n(Velocidade em metros/segundo)" +
+      "\nSem aumento de velocidade na linha de visão. Hantu não pode ligar o disjuntor e tem uma chance maior de desligar o disjuntor. Hantu produzirá respiração congelante em qualquer sala durante uma caçada se o disjuntor estiver desligado. (veja o vídeo abaixo) Hantu sempre terá temperaturas de congelamento no modo Pesadelo.",
     hunt: "Hantu pode caçar normalmente com 50% de chance.",
     unique:
-      "Hantu é menos ativo quando a temperatura está mais baixa. Durante a caçada, a temperatura ambiente cai rapidamente.",
+      "Mais frio mais rapido.",
     fact: "N/A",
-    video: "N/A",
+    video: "https://youtu.be/kQfPT_gTfxw",
   },
   {
     name: "GORYO",
