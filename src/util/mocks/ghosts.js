@@ -171,7 +171,8 @@ const ghost = [
       "Oni não pode fazer o evento fantasma de 'nevoeiro do fantasma' e tem uma chance maior de mostrar sua forma completa durante os eventos fantasma (não sombra ou stealth). Sempre preste atenção aos eventos fantasma que ocorrem.",
     fact: "Oni não arremessará objetos mais alto ou mais longe do que outros fantasmas. Essa habilidade foi transferida para o Poltergeist na atualização Apocalypse.",
     video: "https://youtu.be/5FicXO8G-Kw",
-    video2: "https://clips.twitch.tv/DependableFlaccidKuduResidentSleeper-M5WMgUMKTAocvYp7"
+    video2:
+      "https://clips.twitch.tv/DependableFlaccidKuduResidentSleeper-M5WMgUMKTAocvYp7",
   },
   {
     name: "YOKAI",
@@ -193,7 +194,7 @@ const ghost = [
     strength:
       "Falar perto de um Hantu aumentará sua atividade, levando a ataques com mais frequência.",
     weakness: "Hantu é menos ativo quando está em temperaturas mais baixas.",
-    evidence: ["Freezing Temps", "Orbs","Fingerprints"],
+    evidence: ["Orbs", "Freezing Temps", "Fingerprints"],
     noEvidence:
       "Dreno de sanidade aumentado quando a temperatura está mais baixa. Caçador precoce quando a temperatura está mais baixa.",
     hunt: "Hantu pode caçar normalmente com 50% de chance.",
