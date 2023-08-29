@@ -21,7 +21,8 @@ class ValidationServer {
     if (
       client.config.serverPermissions[2] == message.guild.id ||
       client.config.serverPermissions[1] == message.guild.id ||
-      client.config.serverPermissions[3] == message.guild.id
+      client.config.serverPermissions[3] == message.guild.id ||
+      client.config.serverPermissions[4] == message.guild.id
     ) {
       return true;
     }

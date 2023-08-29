@@ -28,7 +28,14 @@ module.exports = {
   DISPLAY_VOICE_STATE: true,
   PORT: process.env.PORT,
 
-  SERVER_PERMISSIONS: [process.env.RPG, process.env.SHARK, process.env.MY, process.env.ACEROLA, process.env.BELLU],
+  SERVER_PERMISSIONS: [
+    process.env.RPG,
+    process.env.SHARK,
+    process.env.MY,
+    process.env.ACEROLA,
+    process.env.BELLU,
+    process.env.AYY,
+  ],
 };
 
 function parseBoolean(ask) {
