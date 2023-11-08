@@ -50,13 +50,21 @@ class Dice {
     let dices = [];
     for (let i = 0; i < dice.numDice; i++) {
       let numberByThrow = 0;
-      if (this.diceOn == true && id == "559901601167441920") {
+      if (
+        this.diceOn == true &&
+        id == "559901601167441920" &&
+        dice.numSides == 20
+      ) {
         numberByThrow = parseInt(
           Math.floor(Math.random() * (13 - 1 + 1)) + 1,
           10
         );
       }
-      if (this.diceOn == true && id == "229724269150470144") {
+      if (
+        this.diceOn == true &&
+        id == "229724269150470144" &&
+        dice.numSides == 20
+      ) {
         numberByThrow = parseInt(
           Math.floor(Math.random() * (20 - 15 + 1)) + 15,
           10
