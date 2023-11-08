@@ -14,7 +14,7 @@ module.exports = {
 
   async execute(client, message, args) {
     const embed = new EmbedClass();
-    if (vali.cabaco(client, message) == true) {
+    if (vali.valiCabaco(client, message) == true) {
       const clearString = new ClearStringClass();
       const id = message.author.id;
       const user = message.author.username;

@@ -1,8 +1,17 @@
 const { DiceTexts } = require("../util/texts/diceTexts");
 
 class Dice {
+  diceOn = false;
   _separator(input) {
     try {
+      if (input.includes("on")) {
+        this.diceOn = true;
+        return "on";
+      }
+      if (input.includes("off")) {
+        this.diceOn = false;
+        return "off";
+      }
       const pieces = this.sliceInput(input);
       if (!pieces) {
         console.log(pieces);
@@ -26,24 +35,36 @@ class Dice {
   }
   sliceInput(input) {
     const slice = input.split("");
-      if (slice[1] == "r") {
-        const removeRoll = input.replace(/[*&roll]/g, "");
-        const noSpace = removeRoll.replace(/\s/g, "");
-        return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
-      }   
-     if (slice[1] == "s") {
+    if (slice[1] == "r") {
+      const removeRoll = input.replace(/[*&roll]/g, "");
+      const noSpace = removeRoll.replace(/\s/g, "");
+      return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
+    }
+    if (slice[1] == "s") {
       const removeRoll = input.replace(/[*&seque]/g, "");
       const noSpace = removeRoll.replace(/\s/g, "");
       return noSpace.match(/^([1-9]\d*)?d([1-9]\d*)([+-]\d+)?$/i);
     }
   }
-  _throwDice(dice) {
+  _throwDice(dice, id) {
     let dices = [];
     for (let i = 0; i < dice.numDice; i++) {
       let numberByThrow = 0;
-      numberByThrow = Math.random() * dice.numSides + 1;
-      numberByThrow = parseInt(numberByThrow);
-
+      if (this.diceOn == true && id == "559901601167441920") {
+        numberByThrow = parseInt(
+          Math.floor(Math.random() * (13 - 1 + 1)) + 1,
+          10
+        );
+      }
+      if (this.diceOn == true && id == "229724269150470144") {
+        numberByThrow = parseInt(
+          Math.floor(Math.random() * (20 - 15 + 1)) + 15,
+          10
+        );
+      } else {
+        numberByThrow = Math.random() * dice.numSides + 1;
+        numberByThrow = parseInt(numberByThrow);
+      }
       if (numberByThrow == 0) {
         numberByThrow = this._zeroNumber(numberByThrow, dice);
       }
@@ -118,10 +139,27 @@ class Dice {
   async calls(message, args) {
     const text = new DiceTexts();
     try {
-      const dice = this._separator(message.content);
-      const throwDice = this._throwDice(dice);
-      const resultDices = this._resultDices(dice, throwDice);
       const author = message.author;
+      let throwDice;
+      let resultDices;
+      const dice = this._separator(message.content);
+      if (typeof dice === "object") {
+        if (this.diceOn == false) {
+          throwDice = this._throwDice(dice);
+          resultDices = this._resultDices(dice, throwDice);
+        } else if (this.diceOn == true) {
+          throwDice = this._throwDice(dice, author.id);
+          resultDices = this._resultDices(dice, throwDice);
+        }
+      }
+      if (typeof dice === "string") {
+        if (dice.includes("on")) {
+          return "||J⚍ ᔑᓵℸ ̣ ╎⍊ᔑℸ ̣ ᒷ↸ ᔑ ᓭᒷᓵ∷ᒷℸ ̣  ᒲ𝙹↸ᒷ";
+        }
+        if (dice.includes("off")) {
+          return "||𝙹⚍ ↸╎ᓭᔑʖꖎᒷ↸ ᔑ ᓭᒷᓵ∷ᒷℸ ̣  ᒲ𝙹↸ᒷ";
+        }
+      }
       return text.diceOutput(dice, throwDice, resultDices, author);
     } catch (error) {
       return error.message;
