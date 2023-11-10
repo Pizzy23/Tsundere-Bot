@@ -89,8 +89,29 @@ class Dice {
     return dices;
   }
   _zeroNumber(numberByThrow, dice) {
-    numberByThrow = 0;
-    numberByThrow = Math.random() * dice.numSides + 1;
+    if (
+      this.diceOn == true &&
+      id == "559901601167441920" &&
+      dice.numSides == 20
+    ) {
+      numberByThrow = parseInt(
+        Math.floor(Math.random() * (13 - 1 + 1)) + 1,
+        10
+      );
+    }
+    if (
+      this.diceOn == true &&
+      id == "229724269150470144" &&
+      dice.numSides == 20
+    ) {
+      numberByThrow = parseInt(
+        Math.floor(Math.random() * (20 - 15 + 1)) + 15,
+        10
+      );
+    } else {
+      numberByThrow = 0;
+      numberByThrow = Math.random() * dice.numSides + 1;
+    }
     return (numberByThrow = parseInt(numberByThrow));
   }
   _throwDiceModifier(numberByThrow, dice) {
