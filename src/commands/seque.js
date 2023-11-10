@@ -20,21 +20,25 @@ module.exports = {
         output = "Você fez algo errado idiota.";
         return message.channel.send(output);
       }
-      let string = "";
-      output.forEach((item, index) => {
-        string = string + `\n${item}`;
-      });
-      const embed = new Discord.EmbedBuilder()
-        .setColor("800080")
-        .setTitle("Roll")
-        .setDescription(string)
-        .setTimestamp();
-      return message
-        .reply({
-          embeds: [embed],
-          allowedMentions: { repliedUser: false },
-        })
-        .catch(console.error);
+      if (typeof output === "string") {
+        return message.reply(output);
+      } else {
+        let string = "";
+        output.forEach((item, index) => {
+          string = string + `\n${item}`;
+        });
+        const embed = new Discord.EmbedBuilder()
+          .setColor("800080")
+          .setTitle("Roll")
+          .setDescription(string)
+          .setTimestamp();
+        return message
+          .reply({
+            embeds: [embed],
+            allowedMentions: { repliedUser: false },
+          })
+          .catch(console.error);
+      }
     } else {
       return embedClass.noPermission(message);
     }
