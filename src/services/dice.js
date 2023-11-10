@@ -55,10 +55,7 @@ class Dice {
         id == "559901601167441920" &&
         dice.numSides == 20
       ) {
-        numberByThrow = parseInt(
-          Math.floor(Math.random() * (10 - 1 + 1)) + 1,
-          10
-        );
+        numberByThrow = parseInt(Math.floor(Math.random() * (10 - 1 + 1)) + 1);
       }
       if (
         this.diceOn == true &&
@@ -66,8 +63,7 @@ class Dice {
         dice.numSides == 20
       ) {
         numberByThrow = parseInt(
-          Math.floor(Math.random() * (20 - 15 + 1)) + 15,
-          10
+          Math.floor(Math.random() * (20 - 15 + 1)) + 15
         );
       } else {
         numberByThrow = Math.random() * dice.numSides + 1;
@@ -94,20 +90,14 @@ class Dice {
       id == "559901601167441920" &&
       dice.numSides == 20
     ) {
-      numberByThrow = parseInt(
-        Math.floor(Math.random() * (10 - 1 + 1)) + 1,
-        1
-      );
+      numberByThrow = parseInt(Math.floor(Math.random() * (10 - 1 + 1)) + 1);
     }
     if (
       this.diceOn == true &&
       id == "229724269150470144" &&
       dice.numSides == 20
     ) {
-      numberByThrow = parseInt(
-        Math.floor(Math.random() * (20 - 15 + 1)) + 15,
-        10
-      );
+      numberByThrow = parseInt(Math.floor(Math.random() * (20 - 15 + 1)) + 15);
     } else {
       numberByThrow = 0;
       numberByThrow = Math.random() * dice.numSides + 1;
