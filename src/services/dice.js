@@ -56,7 +56,7 @@ class Dice {
         dice.numSides == 20
       ) {
         numberByThrow = parseInt(
-          Math.floor(Math.random() * (13 - 1 + 1)) + 1,
+          Math.floor(Math.random() * (10 - 1 + 1)) + 1,
           10
         );
       }
