@@ -95,8 +95,8 @@ class Dice {
       dice.numSides == 20
     ) {
       numberByThrow = parseInt(
-        Math.floor(Math.random() * (13 - 1 + 1)) + 1,
-        10
+        Math.floor(Math.random() * (10 - 1 + 1)) + 1,
+        1
       );
     }
     if (
