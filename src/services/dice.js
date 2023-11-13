@@ -4,6 +4,12 @@ class Dice {
   diceOn = false;
   _separator(input) {
     try {
+      if (input.includes("111")) {
+        return 30;
+      }
+      if (input.includes("troll")) {
+        return "ATENÇÃO O LUCAS FOI TROLLADO :)";
+      }
       if (input.includes("on")) {
         this.diceOn = true;
         return "on";
@@ -65,6 +71,13 @@ class Dice {
         numberByThrow = parseInt(
           Math.floor(Math.random() * (20 - 15 + 1)) + 15
         );
+      }
+      if (
+        this.diceOn == true &&
+        id == "229724269150470144" &&
+        dice.numSides == 30
+      ) {
+        numberByThrow = 30;
       } else {
         numberByThrow = Math.random() * dice.numSides + 1;
         numberByThrow = parseInt(numberByThrow);
@@ -172,6 +185,12 @@ class Dice {
         }
       }
       if (typeof dice === "string") {
+        if (dice.includes("d")) {
+          return 30;
+        }
+        if (dice.includes("troll")) {
+          return "ATENÇÃO O LUCAS FOI TROLLADO :)";
+        }
         if (dice.includes("on")) {
           return "||J⚍ ᔑᓵℸ ̣ ╎⍊ᔑℸ ̣ ᒷ↸ ᔑ ᓭᒷᓵ∷ᒷℸ ̣  ᒲ𝙹↸ᒷ";
         }
