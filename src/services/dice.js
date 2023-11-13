@@ -4,12 +4,6 @@ class Dice {
   diceOn = false;
   _separator(input) {
     try {
-      if (input.includes("111")) {
-        return 'd';
-      }
-      if (input.includes("troll")) {
-        return "troll";
-      }
       if (input.includes("on")) {
         this.diceOn = true;
         return "on";
@@ -185,12 +179,6 @@ class Dice {
         }
       }
       if (typeof dice === "string") {
-        if (dice.includes("d")) {
-          return 30;
-        }
-        if (dice.includes("troll")) {
-          return "ATENÇÃO O LUCAS FOI TROLLADO :)";
-        }
         if (dice.includes("on")) {
           return "||J⚍ ᔑᓵℸ ̣ ╎⍊ᔑℸ ̣ ᒷ↸ ᔑ ᓭᒷᓵ∷ᒷℸ ̣  ᒲ𝙹↸ᒷ";
         }
