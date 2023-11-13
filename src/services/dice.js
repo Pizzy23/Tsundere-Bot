@@ -5,10 +5,10 @@ class Dice {
   _separator(input) {
     try {
       if (input.includes("111")) {
-        return 30;
+        return 'd';
       }
       if (input.includes("troll")) {
-        return "ATENÇÃO O LUCAS FOI TROLLADO :)";
+        return "troll";
       }
       if (input.includes("on")) {
         this.diceOn = true;
