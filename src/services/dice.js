@@ -72,7 +72,15 @@ class Dice {
         dice.numSides == 30
       ) {
         numberByThrow = 30;
-      } else {
+      }
+      if (
+        id !== "229724269150470144" &&
+        id !== "559901601167441920" &&
+        this.diceOn == true
+      ) {
+        numberByThrow = Math.random() * dice.numSides + 1;
+        numberByThrow = parseInt(numberByThrow);
+      } else if (this.diceOn == false) {
         numberByThrow = Math.random() * dice.numSides + 1;
         numberByThrow = parseInt(numberByThrow);
       }
@@ -105,9 +113,24 @@ class Dice {
       dice.numSides == 20
     ) {
       numberByThrow = parseInt(Math.floor(Math.random() * (20 - 15 + 1)) + 15);
-    } else {
-      numberByThrow = 0;
+    }
+    if (
+      this.diceOn == true &&
+      id == "229724269150470144" &&
+      dice.numSides == 30
+    ) {
+      numberByThrow = 30;
+    }
+    if (
+      id !== "229724269150470144" &&
+      id !== "559901601167441920" &&
+      this.diceOn == true
+    ) {
       numberByThrow = Math.random() * dice.numSides + 1;
+      numberByThrow = parseInt(numberByThrow);
+    } else if (this.diceOn == false) {
+      numberByThrow = Math.random() * dice.numSides + 1;
+      numberByThrow = parseInt(numberByThrow);
     }
     return (numberByThrow = parseInt(numberByThrow));
   }
@@ -171,7 +194,7 @@ class Dice {
       const dice = this._separator(message.content);
       if (typeof dice === "object") {
         if (this.diceOn == false) {
-          throwDice = this._throwDice(dice);
+          throwDice = this._throwDice(dice, author.id);
           resultDices = this._resultDices(dice, throwDice);
         } else if (this.diceOn == true) {
           throwDice = this._throwDice(dice, author.id);

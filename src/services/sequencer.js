@@ -80,7 +80,7 @@ class Sequencer extends Dice {
           return validation;
         }
       }
-      return 
+      return;
     } catch (e) {
       return this.setError(e.message);
     }
@@ -99,7 +99,14 @@ class Sequencer extends Dice {
       this.diceObj.numSides == 20
     ) {
       this.dice = parseInt(Math.floor(Math.random() * (20 - 15 + 1)) + 15);
-    } else {
+    }
+    if (
+      this.id !== "229724269150470144" &&
+      this.id !== "559901601167441920" &&
+      this.seque == true
+    ) {
+      this.dice = Math.floor(Math.random() * this.diceObj.numSides) + 1;
+    } else if (this.seque == false) {
       this.dice = Math.floor(Math.random() * this.diceObj.numSides) + 1;
     }
 
