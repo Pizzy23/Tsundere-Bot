@@ -244,7 +244,6 @@ client.distube
     )
   )
   .on("finish", (queue) => {
-    console.log(`O erro: ${JSON.stringify(queue)}`);
     queue.textChannel.send(
       "Aqui eu tirei suas musicas, não como se não gostasse de tocar elas."
     );
