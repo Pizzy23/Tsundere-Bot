@@ -44,6 +44,7 @@ module.exports = {
           string.includes("youtube") === true ||
           string.includes("youtu.be") === true
         ) {
+          console.log("Player")
           await client.distube.play(message.member.voice.channel, string, {
             message,
             member: message.member,
